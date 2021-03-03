@@ -5,6 +5,7 @@ import {
   GroupDropdown,
   MultiselectDropdown,
 } from 'sharingan-rn-modal-dropdown';
+import Lo from 'lodash';
 
 export const data = [
   {
@@ -171,7 +172,15 @@ const Example = () => {
         <View style={styles.container}>
           <MultiselectDropdown
             label="Multi select with avatar chip outlined"
-            data={data}
+            data={Lo.map(Lo.range(0, 500), value => ({
+              value: value,
+              label: 'Pixel 5',
+              employee_salary: '237500',
+              employee_age: '59',
+              avatarSource: {
+                uri: 'https://img.icons8.com/cute-clipart/344/android.png',
+              },
+            }))}
             enableSearch
             enableAvatar
             chipType="outlined"

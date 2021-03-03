@@ -15,6 +15,8 @@ import {
   Paragraph,
   Portal,
 } from 'react-native-paper';
+import Lo from 'lodash';
+
 import { DropdownValidation } from './validation';
 
 type tState = {
@@ -91,7 +93,16 @@ const FormikExample = () => {
               <View style={styles.container}>
                 <MultiselectDropdown
                   label="Multi select without avatar chip flat"
-                  data={data}
+                  data={Lo.map(Lo.range(0, 500), value => ({
+                    value: value,
+                    label: `Value ${value}`,
+                    employee_salary: '237500',
+                    employee_age: '59',
+                    avatarSource: {
+                      uri:
+                        'https://img.icons8.com/cute-clipart/344/android.png',
+                    },
+                  }))}
                   primaryColor={Colors.cyan500}
                   enableSearch
                   value={values.msChipFlat}
@@ -101,6 +112,8 @@ const FormikExample = () => {
                   error={errors.msChipFlat ? true : false}
                   emptySelectionText="No item selected"
                   chipStyle={{ backgroundColor: 'white' }}
+                  enableAvatar
+                  // mode="outlined"
                 />
               </View>
               <View style={styles.container}>

@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Avatar } from 'react-native-paper';
+// import { Avatar } from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Lo from 'lodash';
+import FastImage from 'react-native-fast-image';
 
 import { colors, ITEMLAYOUT } from '../constants';
 import type { IMultiselectDropdownItemProps } from '../types';
@@ -89,9 +90,11 @@ const MultiselectItem: React.FC<IMultiselectDropdownItemProps> = ({
       >
         <View style={styles.textView}>
           {enableAvatar && (
-            <Avatar.Image
-              size={avatarSize}
-              style={styles.avatarView}
+            <FastImage
+              style={[
+                styles.avatarView,
+                { width: avatarSize, height: avatarSize },
+              ]}
               source={avatarSource || defaultAvatar}
             />
           )}

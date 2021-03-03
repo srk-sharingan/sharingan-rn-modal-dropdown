@@ -362,7 +362,7 @@ const Dropdown: React.FC<IDropdownProps> = props => {
                 ref={listRef}
                 data={options}
                 initialNumToRender={50}
-                // maxToRenderPerBatch={25}
+                maxToRenderPerBatch={25}
                 persistentScrollbar
                 scrollEnabled={!showLoader}
                 ListHeaderComponent={
